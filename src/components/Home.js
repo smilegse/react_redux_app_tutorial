@@ -78,7 +78,11 @@ class Home extends Component {
                 { this.state.email ? <p> Email: { this.state.email } </p> : '' } 
                 <Example name="Md. Abu Bakar Siddique"/> */}
 
-                <Books changeHandler= { this.changeHandler.bind(this) } deleteHandler = { this.deleteHandler.bind(this) } books={ this.state.books } />
+                <Books 
+                    changeHandler= { this.changeHandler.bind(this) } 
+                    deleteHandler = { this.deleteHandler.bind(this) } 
+                    books = { this.state.books } 
+                />
             </div>
         );
     }

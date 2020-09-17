@@ -6,12 +6,29 @@ class Book extends Component {
         isEditable: false
     }
 
+    changeKeyHandler = (event) => {
+        if(event.key === 'Enter'){
+           this.setState({
+               isEditable: false
+           })
+        }
+    }
 
     render() {
 
-        let output = this.state.isEditable ? 
-                    <input type='text' placeholder='Enter your Name' value={ this.props.book.name } />  
-                    : <p> { this.props.book.name } </p> 
+        let output = this.state.isEditable ? (
+            <input 
+                onChange = { e => 
+                    this.props.changeHandler( this.props.book.id, e.target.value )
+                }
+                onKeyPress = { this.changeKeyHandler }
+                type='text' 
+                placeholder='Enter your Name' 
+                value={ this.props.book.name } 
+            />  
+        ) : (
+            <p> { this.props.book.name } </p> 
+        ) 
 
         return (
 
